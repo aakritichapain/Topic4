@@ -2,6 +2,7 @@ package com.aakriti.topic4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView lstCountries= findViewById(R.id.lstCountries);
 
+
         dictionary= new HashMap<>();
         for (int i=0;i<countries.length;i+=2){
             dictionary.put(countries[i],countries[i+1]);
@@ -55,8 +57,15 @@ public class MainActivity extends AppCompatActivity {
                 String capital = dictionary.get(country);
                 Toast.makeText(getApplicationContext(),capital.toString(),
                         Toast.LENGTH_LONG).show();
+
+                Intent intent= new Intent(MainActivity.this, ExplictIntent.class);
+                intent.putExtra("capital", "capital");
+                startActivity(intent);
+
             }
         });
+
+
 
 
 
